@@ -1,0 +1,113 @@
+DROP DATABASE IF EXISTS test_intcomex;
+
+CREATE DATABASE test_intcomex
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'es_ES.UTF-8'
+    LC_CTYPE = 'es_ES.UTF-8'
+    LOCALE_PROVIDER = 'libc'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE Suppliers (
+    supplier_id  SERIAL PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    contact_name VARCHAR(255),
+    contact_title VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    region VARCHAR(255),
+    postal_code VARCHAR(20),
+    country VARCHAR(255),
+    phone VARCHAR(50),
+    fax VARCHAR(50),
+    homePage TEXT
+);
+
+CREATE TABLE Categories (
+    category_id SERIAL PRIMARY KEY,
+    category_name VARCHAR(255) UNIQUE NOT NULL,
+    description TEXT,
+    picture BYTEA
+);
+
+CREATE TABLE Products (
+    ProductID SERIAL PRIMARY KEY,
+    ProductName VARCHAR(255) NOT NULL,
+    SupplierID INT REFERENCES Suppliers(supplier_id),
+    CategoryID INT REFERENCES Categories(category_id),
+    QuantityPerUnit VARCHAR(255),
+    UnitPrice NUMERIC(10, 2),
+    UnitsInStock INT,
+    UnitsOnOrder INT,
+    ReorderLevel INT,
+    Discontinued BOOLEAN
+);
+
+CREATE TABLE Customers (
+    customer_id SERIAL PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    contact_name VARCHAR(255),
+    contact_title VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    region VARCHAR(255),
+    postalCode VARCHAR(20),
+    country VARCHAR(255),
+    phone VARCHAR(50),
+    fax VARCHAR(50)
+);
+
+CREATE TABLE Employees (
+    employee_id SERIAL PRIMARY KEY,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    title VARCHAR(255),
+    title_of_courtesy VARCHAR(255),
+    birth_date DATE,
+    hire_date DATE,
+    address VARCHAR(255),
+    city VARCHAR(255),
+    region VARCHAR(255),
+    postal_code VARCHAR(20),
+    country VARCHAR(255),
+    home_phone VARCHAR(50),
+    extension VARCHAR(10),
+    photo BYTEA,
+    notes TEXT,
+    reports_to INT REFERENCES Employees(employee_id)
+);
+
+CREATE TABLE Shippers (
+    shipper_id SERIAL PRIMARY KEY,
+    company_name VARCHAR(255) NOT NULL,
+    phone VARCHAR(50)
+);
+
+CREATE TABLE Orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES Customers(customer_id),
+    employee_id INT REFERENCES Employees(employee_id),
+    order_date DATE,
+    required_date DATE,
+    shipped_date DATE,
+    ship_via INT REFERENCES Shippers(shipper_id),
+    freight NUMERIC(10, 2),
+    ship_name VARCHAR(255),
+    ship_address VARCHAR(255),
+    ship_city VARCHAR(255),
+    ship_region VARCHAR(255),
+    ship_postal_code VARCHAR(20),
+    ship_country VARCHAR(255)
+);
+
+CREATE TABLE OrderDetails (
+    order_id INT REFERENCES Orders(order_id),
+    product_id INT REFERENCES Products(product_id),
+    unit_price NUMERIC(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    discount NUMERIC(3, 2) NOT NULL,
+    PRIMARY KEY (order_id, product_id)
+);
