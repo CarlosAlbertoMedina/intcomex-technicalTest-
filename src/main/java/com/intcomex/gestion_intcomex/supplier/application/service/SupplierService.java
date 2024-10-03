@@ -10,7 +10,7 @@ public interface SupplierService {
 
     SupplierDTO createSupplier(SupplierDTO supplierDTO);
 
-    Page<SupplierDTO> getAllSuppliers(Pageable pageable) ;
+    Page<SupplierDTO> getAllSuppliers(Pageable pageable);
 
     Optional<SupplierDTO> getSupplierById(Long id);
 

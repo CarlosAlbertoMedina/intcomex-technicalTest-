@@ -11,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-
-
 @RestController
 @RequestMapping("/api/category")
 @Api(value = "Category Management", tags = "Categorías")
@@ -49,7 +47,7 @@ public class CategoryController {
             @ApiImplicitParam(name = "size", value = "Tamaño de la página", required = false, dataType = "integer", paramType = "query", defaultValue = "10"),
             @ApiImplicitParam(name = "sort", value = "Campo(s) por los que ordenar (ej: name,asc)", required = false, dataType = "string", paramType = "query", defaultValue = "name,desc")
     })
-    public Page<CategoryDTO> getAllCategories(@PageableDefault(size = 10)  Pageable pageable) {
+    public Page<CategoryDTO> getAllCategories(@PageableDefault(size = 10) Pageable pageable) {
         return categoryService.getAllCategories(pageable);
     }
 
@@ -61,7 +59,7 @@ public class CategoryController {
     })
     public ResponseEntity<CategoryDTO> createCategory(
             @ApiParam(value = "Detalles de la categoría a crear", required = true) @RequestBody CategoryDTO categoryDTO) {
-        CategoryDTO responseDTO  = categoryService.createCategory(categoryDTO);
+        CategoryDTO responseDTO = categoryService.createCategory(categoryDTO);
         return ResponseEntity.status(201).body(responseDTO);
     }
 
