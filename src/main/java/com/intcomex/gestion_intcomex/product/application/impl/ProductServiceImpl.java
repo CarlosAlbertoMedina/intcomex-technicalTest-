@@ -74,7 +74,7 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
-    private void fillProduct(Product product , ProductDTO productDTO){
+    private void fillProduct(Product product, ProductDTO productDTO) {
         product.setProductName(productDTO.getProductName());
         product.setQuantityPerUnit(productDTO.getQuantityPerUnit());
         product.setUnitPrice(productDTO.getUnitPrice());

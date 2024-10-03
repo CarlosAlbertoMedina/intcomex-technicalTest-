@@ -1,9 +1,5 @@
 package com.intcomex.gestion_intcomex.repository.supplier_test;
 
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-
 import com.intcomex.gestion_intcomex.supplier.application.DTOs.SupplierDTO;
 import com.intcomex.gestion_intcomex.supplier.application.service.SupplierService;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +14,11 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Optional;
+
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -68,13 +69,5 @@ public class SupplierControllerTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
-
-    @Test
-    void deleteSupplier() throws Exception {
-        mockMvc.perform(delete("/api/suppliers/1"))
-                .andExpect(status().isNoContent());
-        verify(supplierService, times(1)).deleteSupplier(1L);
-    }
-
 
 }

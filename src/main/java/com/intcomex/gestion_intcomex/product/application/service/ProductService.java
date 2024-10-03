@@ -10,7 +10,7 @@ public interface ProductService {
 
     ProductDTO createProduct(ProductDTO productDTO);
 
-    Page<ProductDTO> getAllProducts(Pageable pageable) ;
+    Page<ProductDTO> getAllProducts(Pageable pageable);
 
     Optional<ProductDTO> getProduct(Long id);
 

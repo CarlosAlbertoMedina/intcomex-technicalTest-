@@ -1,8 +1,6 @@
 package com.intcomex.gestion_intcomex.category.application.service;
 
 import com.intcomex.gestion_intcomex.category.application.DTOs.CategoryDTO;
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +10,7 @@ public interface CategoryService {
 
     CategoryDTO createCategory(CategoryDTO categoryDTO);
 
-    Page<CategoryDTO> getAllCategories(Pageable pageable) ;
+    Page<CategoryDTO> getAllCategories(Pageable pageable);
 
     Optional<CategoryDTO> getCategory(Long id);
 

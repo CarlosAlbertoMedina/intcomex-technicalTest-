@@ -1,9 +1,13 @@
 # intcomex-technicalTest-
-Repositorio de prueba técnica en proceso de selección 
+
+Repositorio de prueba técnica en proceso de selección
 
 Descripción
 
-Este proyecto es una aplicación de gestión desarrollada con Java 17 y Spring 3, utilizando la arquitectura hexagonal para asegurar una separación clara entre la lógica de negocio y la infraestructura. Esta estructura permite una mayor flexibilidad y facilidad de prueba, facilitando la integración de diferentes componentes y adaptaciones a futuros requerimientos.
+Este proyecto es una aplicación de gestión desarrollada con Java 17 y Spring 3, utilizando la arquitectura hexagonal
+para asegurar una separación clara entre la lógica de negocio y la infraestructura. Esta estructura permite una mayor
+flexibilidad y facilidad de prueba, facilitando la integración de diferentes componentes y adaptaciones a futuros
+requerimientos.
 Características Principales
 
     Arquitectura Hexagonal: Separa la lógica de negocio de los detalles de implementación, permitiendo la fácil integración de nuevas funcionalidades y adaptaciones a diferentes entornos.
@@ -57,7 +61,8 @@ URL servicio desplegado: http://testjavaapp.us-east-1.elasticbeanstalk.com/
 
 Contribuciones
 
-Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request.
+Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull
+request.
 Licencia
 
 Si tienes alguna pregunta o sugerencia, no dudes en contactarnos.

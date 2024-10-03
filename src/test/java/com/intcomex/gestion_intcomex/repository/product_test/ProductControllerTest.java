@@ -1,9 +1,5 @@
 package com.intcomex.gestion_intcomex.repository.product_test;
 
-import static org.mockito.Mockito.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-
 import com.intcomex.gestion_intcomex.product.application.DTOs.ProductDTO;
 import com.intcomex.gestion_intcomex.product.application.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,6 +15,11 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.sql.SQLException;
 import java.util.Optional;
+
+import static org.mockito.Mockito.any;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
