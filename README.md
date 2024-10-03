@@ -53,6 +53,8 @@ Para ejecutar las pruebas unitarias, utiliza el siguiente comando de Maven:
 bash
 mvn test
 
+URL servicio desplegado: http://testjavaapp.us-east-1.elasticbeanstalk.com/
+
 Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request.
